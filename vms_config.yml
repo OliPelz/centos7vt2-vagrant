@@ -1,6 +1,6 @@
 lab_machines:
   - name: "master"
-    ip: "192.168.1.100"
+    ip: "192.168.2.100"
     ssh_port: 22
     cpus: 1
     mem: 200
@@ -9,7 +9,7 @@ lab_machines:
     domain: "centos7vt.com"
   
   - name: "client1"
-    ip: "192.168.1.101"
+    ip: "192.168.2.101"
     ssh_port: 22
     cpus: 1
     mem: 200
@@ -18,7 +18,7 @@ lab_machines:
     domain: "centos7vt.com"
   
   - name: "client2"
-    ip: "192.168.1.102"
+    ip: "192.168.2.102"
     ssh_port: 22
     cpus: 1
     mem: 200
@@ -27,7 +27,7 @@ lab_machines:
     domain: "centos7vt.com"
  
   - name: "slave"
-    ip: "192.168.1.103"
+    ip: "192.168.2.103"
     ssh_port: 22
     cpus: 1
     mem: 200
@@ -36,7 +36,7 @@ lab_machines:
     domain: "centos7vt.com"
 
   - name: "ubuntubox"
-    ip: "192.168.1.50"
+    ip: "192.168.2.50"
     ssh_port: 22
     cpus: 1
     mem: 200
