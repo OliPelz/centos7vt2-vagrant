@@ -1,0 +1,35 @@
+---
+- name: "Demo part of Intro video"
+  id: "intro_video_course"
+  desc: "the virtual machine used for the demo part of the Introductory video for this video course"
+  lesson_id: "1.1"
+  require_vm: 
+     - "ubuntubox"
+
+- name: "printing with cups"
+  id: "cups_printing"
+  desc: "install and config a CUPS printing service in a network than test it from a 2nd VM"
+  lesson_id: "1.2"
+  require_vm: 
+     - "master"
+     - "client1"
+
+- name: "running a DHCP server"
+  id: "dhcp_service"
+  desc: "installs and configures a local DHCP service which we can use in our network" 
+  lesson_id: "1.3"
+  require_vm: 
+     - "master"
+     - "client1"
+     - "client2"
+     - "slave"
+     - "ubuntubox"
+
+- name: "using WebDAV for file sharing"
+  id: "webdav_service"
+  desc: "installing and configuring a WebDAV service for easy file sharing over HTTP(s)" 
+  lesson_id: "1.4"
+  require_vm: 
+     - "master"
+     - "client1"
+

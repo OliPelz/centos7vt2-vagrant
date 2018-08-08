@@ -1,0 +1,48 @@
+---
+- hosts: all
+  become: yes
+  become_user: root
+  tasks: 
+    - name: install dependencies
+      apt:
+        name: "{{item}}"
+        state: latest
+        update_cache: yes
+
+      with_items:
+           - git
+           - virtualbox
+           - vagrant
+ 
+    - name: create ssh-keypair for user if not done so
+      user: 
+        name: instructor
+        generate_ssh_key: true
+
+    - name: store public key in variable
+      command: cat /home/instructor/.ssh/id_rsa.pub
+      register: my_pub_key 
+   
+    - name: print pubkey
+      debug: 
+         msg: "{{my_pub_key.stdout}}"
+
+    - name: copy public key to your github.com account 
+      pause:
+          prompt: "Now copy the content of your public key (see above) to your public github account, press any key if you finished doing this"
+ 
+    - name: make dir for our centos-vt-vagrant project
+      file: 
+        path: "/home/instructor/git-projects"
+        state: directory
+        owner: instructor
+        group: instructor
+
+    - name: clone git repos to this location
+      git:
+       repo: 'ssh://git@github.com/OliPelz/centos-vt-vagrant.git'
+       dest: /home/instructor/git-projects/centos-vt-vagrant
+       clone: yes
+       update: no
+
+

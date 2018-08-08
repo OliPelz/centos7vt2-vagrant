@@ -1,0 +1,10 @@
+BOOT_VMS='ubuntubox' vagrant ssh-config
+BOOT_VMS='ubuntubox' ENDSTATE_PLAYBOOKS='./lessons/1.1/playbook-ubuntubox.yml' vagrant provision
+BOOT_VMS='ubuntubox' ENDSTATE_PLAYBOOKS='./lessons/1.1/playbook-ubuntubox.yml' vagrant provision
+BOOT_VMS='ubuntubox' ENDSTATE_PLAYBOOKS='./lessons/1.1/playbook-ubuntubox.yml' vagrant provision
+BOOT_VMS='ubuntubox' ENDSTATE_PLAYBOOKS='./lessons/1.1/playbook-ubuntubox.yml' vagrant provision
+BOOT_VMS='ubuntubox' ENDSTATE_PLAYBOOKS='./lessons/1.1/playbook-ubuntubox.yml' vagrant provision
+BOOT_VMS='ubuntubox' ENDSTATE_PLAYBOOKS='./lessons/1.1/playbook-ubuntubox.yml' vagrant provision
+BOOT_VMS='ubuntubox' ENDSTATE_PLAYBOOKS='./lessons/1.1/playbook-ubuntubox.yml' vagrant provision
+BOOT_VMS='ubuntubox' ENDSTATE_PLAYBOOKS='./lessons/1.1/playbook-ubuntubox.yml' vagrant provision
+BOOT_VMS='ubuntubox' ENDSTATE_PLAYBOOKS='./lessons/1.1/playbook-ubuntubox.yml' vagrant provision

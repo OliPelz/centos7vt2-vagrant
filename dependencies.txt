@@ -1,0 +1,6 @@
+git
+vm provider e.g. virtualbox
+ansible
+public/private ssh keypair in .ssh (ssh-keygen -t rsa)
+python 2.7 standard installation
+

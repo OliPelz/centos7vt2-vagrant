@@ -1,0 +1,21 @@
+---
+# tasks file for common_master
+- name: add new user for using this course
+  user: 
+    name: instructor
+    shell: /bin/bash
+
+- name: create new ssh keypair only on master node
+  user: 
+     name: instructor
+     generate_ssh_key: yes
+
+- name: fetch pub key from instructor on master
+  command: cat /home/instructor/.ssh/id_rsa.pub
+  register: ssh_pub_key
+
+- name: store ssh_pub_key as fact
+  set_fact: 
+    master_ssh_pub_key: "{{ssh_pub_key.stdout}}"
+
+

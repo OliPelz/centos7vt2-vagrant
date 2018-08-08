@@ -1,0 +1,11 @@
+---
+# tasks file for disable-all-centos-repos
+- name    : get all repo files
+  shell   : ls /etc/yum.repos.d/*.repo
+  register: repo_files
+  ignore_errors: yes
+
+- name: disable all standard repos
+  shell: "mv {{item}} {{item}}.BACKUP"
+  with_items: "{{ repo_files.stdout_lines }}"
+  when: repo_files.rc == 0

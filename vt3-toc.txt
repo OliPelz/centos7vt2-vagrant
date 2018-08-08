@@ -1,0 +1,61 @@
+VOLUME 3 – Learning CentOS 7 core services – 2,5 hours of training
+
+VOLUME OVERVIEW – this video training shows the following chapters of the book. Here again we take the cookbook’s recipes and demonstrate them live. This volume is basically about all the essential services a modern Linux server MUST provide to the masses. Also any new CentOS 7 Linux server administrator or person interested in Linux needs to learn and understand the material presented in here.
+
+Section 1 – Setting up CentOS 7 core network services (including ftp) – book chapter 7+8 – 25 minutes
+Introduction
+Printing with CUPS
+Running a DHCP server
+Using WebDAV for file sharing
+Installing and configuring NFS
+Working with NFS
+Securely sharing resources with Samba
+Working with FTP - Introduction
+Installing and configuring the FTP service
+Working with virtual FTP users
+Customizing the FTP service
+Troubleshooting users and file transfers
+
+Section 2 – Working with Domains – book chapter 9  – 25 minutes
+Introduction
+Installing and configuring a caching-only nameserver
+Setting up an authoritative-only DNS server
+Creating an integrated nameserver solution
+Populating the domain
+Building a secondary (slave) DNS server
+
+
+Section 3 - Core Database services – book chapter 10 – 25 minutes
+Introduction
+Installing a MariaDB database server
+Managing a MariaDB database
+Allowing remote access to a MariaDB server
+Installing a PostgreSQL server and managing a database
+Configuring remote access to PostgreSQL
+Installing phpMyAdmin and phpPgAdmin
+
+Section 4 – Setting up Mail services – book chapter 11 – 25 minutes
+Introduction
+Configuring a domain-wide mail service with Postfix
+Working with Postfix
+Delivering the mail with Dovecot
+Using Fetchmail 
+
+Section 5 – Working with Web servers – book chapter 12 – 25 minutes
+Introduction
+Installing Apache and serving web pages
+testing config file changes usingf apachectl configtest
+TEST the accessiblility and push a kickstart file on the server as promised in sect 2
+Enabling system users and building publishing directories
+Implementing name-based hosting
+Implementing CGI with Perl and Ruby
+Installing, configuring, and testing PHP
+Securing Apache
+Setting up HTTPS with Secure Sockets Layer (SSL)
+
+Section 6 - Learning Docker – book chapter 13 – 25 minutes 
+Introduction
+Installing and configuring Docker
+Downloading an image and running a container
+Creating your own images from Dockerfiles and uploading to Docker Hub
+Setting up and working with a private Docker registry

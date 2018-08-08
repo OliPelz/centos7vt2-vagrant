@@ -1,0 +1,7 @@
+master ansible_ssh_host=192.168.1.100 ansible_ssh_port=22
+client1 ansible_ssh_host=192.168.1.101 ansible_ssh_port=22
+client2 ansible_ssh_host=192.168.1.102 ansible_ssh_port=22
+slave ansible_ssh_host=192.168.1.103 ansible_ssh_port=22 
+ubuntubox ansible_ssh_host=192.168.1.104 ansible_ssh_port=22 
+
+
