@@ -4,7 +4,7 @@ lab_machines:
     ssh_port: 22
     cpus: 1
     mem: 200
-    box: "geerlingguy/centos7"
+    box: "jasonc/centos7-32bit"
     playbook: "centos_playbook.yml"
     domain: "centos7vt.com"
   
@@ -13,7 +13,7 @@ lab_machines:
     ssh_port: 22
     cpus: 1
     mem: 200
-    box: "geerlingguy/centos7"
+    box: "jasonc/centos7-32bit"
     playbook: "centos_playbook.yml"
     domain: "centos7vt.com"
   
@@ -22,7 +22,7 @@ lab_machines:
     ssh_port: 22
     cpus: 1
     mem: 200
-    box: "geerlingguy/centos7"
+    box: "jasonc/centos7-32bit"
     playbook: "centos_playbook.yml"
     domain: "centos7vt.com"
  
@@ -31,7 +31,7 @@ lab_machines:
     ssh_port: 22
     cpus: 1
     mem: 200
-    box: "geerlingguy/centos7"
+    box: "jasonc/centos7-32bit"
     playbook: "centos_playbook.yml"
     domain: "centos7vt.com"
 
