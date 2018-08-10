@@ -1,0 +1,8 @@
+---
+# tasks file for centos7repoclient
+- name: add new repos
+  template: 
+    src: "repo.conf.j2"
+    dest: "/etc/yum.repos.d/{{item.name}}.repo"
+  with_items: "{{repoinfo}}"
+

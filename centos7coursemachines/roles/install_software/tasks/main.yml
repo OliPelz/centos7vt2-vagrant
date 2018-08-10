@@ -1,0 +1,9 @@
+---
+# tasks file for install_software
+- name: install software we need
+  yum: 
+    name: "{{ item }}"
+    state: latest
+  with_items:
+     - nc
+     - yum-priorities

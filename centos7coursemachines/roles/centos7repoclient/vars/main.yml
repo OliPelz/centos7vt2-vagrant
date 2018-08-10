@@ -1,0 +1,20 @@
+---
+# vars file for centos7repoclient
+reposrv_internal_ip_address: 192.168.1.200
+disable_default_repos: True
+
+repoinfo: [
+{
+name: my_centos7-main-repo,
+desc: "main CentOS 7 repo mirror",
+baseurl: "http://{{reposrv_internal_ip_address}}/repository/centos/7.5-main",
+        gpgkey_url: "http://{{reposrv_internal_ip_address}}/repository/centos/7.5-main/gpg/RPM-GPG-KEY-CentOS-7" 
+
+}#,
+#{
+#name: my_centos7-EPEL-repo,
+#desc: "best of CentOS 7 EPEL packages",
+#baseurl: "http://{{reposrv_internal_ip_address}}/repository/centos/7.4-EPEL",
+#gpgkey_url: "http://{{reposrv_internal_ip_address}}/repository/centos/7.4-EPEL/gpg/RPM-GPG-KEY-EPEL-7"
+#}
+]

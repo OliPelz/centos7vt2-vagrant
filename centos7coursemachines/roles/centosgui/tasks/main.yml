@@ -1,0 +1,21 @@
+---
+# inspired from https://www.rootusers.com/how-to-install-xfce-gui-in-centos-7-linux/
+#
+# tasks file for centosgui
+- name: install gnome window manager from group install
+  yum:
+    name: "@^GNOME-Desktop"
+    state: present
+
+- name: install firefox
+  yum:
+    name: firefox
+    state: present
+
+- name: set default graphical user interface
+  shell: systemctl set-default graphical.target
+
+#- name: reboot machine
+#  Send the reboot command
+#  shell: shutdown -h now
+

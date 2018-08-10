@@ -1,0 +1,3 @@
+vm provider e.g. virtualbox
+ansible
+public/private ssh keypair in .ssh (ssh-keygen -t rsa)

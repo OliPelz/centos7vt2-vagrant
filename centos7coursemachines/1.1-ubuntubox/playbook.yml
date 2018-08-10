@@ -1,0 +1,56 @@
+- hosts: all
+  become: yes
+  become_user: root
+  tasks:
+
+  - name: add new user for using this course
+    user: name=instructor
+
+  - name: Ensure hostname set
+    hostname: name={{ inventory_hostname }}
+    when: not inventory_hostname|match('(\d{1,3}\.){3}\d{1,3}')
+
+  - name: update host file
+    lineinfile:
+       dest: /etc/hosts
+       regexp: '{{ hostvars[item].ansible_default_ipv4.address }}.*{{ item }}$'
+       line: "{{ hostvars[item].ansible_default_ipv4.address }} {{item}}"
+       state: present
+    become: yes
+    with_items: "{{ groups.all }}"
+  
+  - name: copy root users public key to machine 
+    authorized_key:
+       user: root
+       state: present
+       key: "{{ lookup('file', '/home/olip/.ssh/id_rsa.pub') }}"
+  
+  - name: copy instructor users public key to machine 
+    authorized_key:
+       user: instructor
+       state: present
+       key: "{{ lookup('file', '/home/olip/.ssh/id_rsa.pub') }}"
+  
+  - name: copy socket server python script
+    copy: 
+      src: ./socket_server.py 
+      dest: /opt/socket_server.py
+      mode: 0555
+
+- hosts: all
+  become: yes
+  become_user: root
+  tasks:
+
+  - name: install packages for repo server
+    apt:
+     name: {{ item }}
+     state: latest
+    with_items: 
+       - reprepo
+       - apache2
+
+  - name: add dependencies for installing vagrant to reposerver  
+    debug:
+       msg: "TODO"
+

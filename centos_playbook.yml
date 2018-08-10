@@ -1,0 +1,18 @@
+---
+#- hosts: master
+#  become: yes
+#  become_user: root
+#  roles: 
+#     - { role: common_master}
+#
+- hosts: all
+  become: yes
+  become_user: root
+  vars_files:
+     - ./vms_config.yml
+  roles:
+     - { role: roles/common }      
+       #- { role: roles/disable-all-centos-repos }
+       #- { role: centos7coursemachines/roles/centos7repoclient }
+       #- { role: centos7coursemachines/roles/install_software }
+

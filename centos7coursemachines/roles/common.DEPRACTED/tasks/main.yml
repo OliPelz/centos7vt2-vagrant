@@ -1,0 +1,64 @@
+---
+# tasks file for common
+  - name: get the homedir 
+    local_action: command echo $HOME
+    become: no
+    register: my_homedir
+
+  - name: add new user for using this course
+    user: name=instructor
+
+  - name: Ensure hostname set
+    hostname: name={{ inventory_hostname }}
+    when: not inventory_hostname|match('(\d{1,3}\.){3}\d{1,3}')
+
+  - name: update host file
+    lineinfile:
+       dest: /etc/hosts
+       regexp: '{{ hostvars[item].ansible_default_ipv4.address }}.*{{ item }}$'
+       line: "{{ hostvars[item].ansible_default_ipv4.address }} {{item}}"
+       state: present
+    become: yes
+    with_items: "{{ groups.all }}"
+
+  - name: copy my pub key to root user on machine
+    authorized_key:
+       user: root
+       state: present
+       key: "{{ lookup('file', my_homedir.stdout+'/.ssh/id_rsa.pub') }}"
+
+  - name: copy my pub key to instructor user on machine
+    authorized_key:
+       user: instructor
+       state: present
+       key: "{{ lookup('file', my_homedir.stdout+'/.ssh/id_rsa.pub') }}"
+
+  - name: copy socket server python script to machine
+    copy:
+      src: ./socket_server.py
+      dest: /opt/socket_server.py
+      mode: 0555
+
+  - name: copy socket fake server python script to machine
+    copy:
+      src: ./socket_server_fake_cmd.py
+      dest: /opt/socket_server_fake_cmd.py
+      mode: 0555
+  
+  - name: add to .bashrc the socket_server.py
+    lineinfile:
+        line: "/opt/socket_server.py server /tmp/socket_server_$(basename `tty`).sock"
+        path: /home/instructor/.bashrc
+
+  - name: add empty .myfunctions file to home dir
+    shell: touch ~/.myfunctions
+
+  - name: add to .bashrc the sourcing of custom myfunctions function file
+    lineinfile:
+        line: "source ~/.myfunctions"
+        path: /home/instructor/.bashrc
+  
+  - name: start socket_server_fake_cmd in background
+    lineinfile:
+        line: "/opt/socket_server_fake_cmd.py server /tmp/socket_server_fake_cmd_$(basename `tty`).sock"
+        path: /home/instructor/.bashrc
